@@ -17,79 +17,87 @@ body { margin:0; font-family:Arial; background:#eef4fb; }
 
 /* FORM */
 .form-container {
-    max-width:600px;
-    margin:60px auto;
-    background:white;
-    padding:35px;
-    border-radius:15px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  max-width:600px; margin:60px auto; background:white; padding:35px;
+  border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.12);
 }
 .logo { display:block; margin:0 auto 20px auto; max-width:200px; }
 h2 { text-align:center; color:#1565c0; }
 
 label { font-weight:bold; display:block; margin-top:15px; color:#0d47a1; }
-
 input, textarea {
-    width:100%;
-    padding:12px;
-    margin-top:6px;
-    border:1px solid #cfd8dc;
-    border-radius:10px;
+  width:100%; padding:12px; margin-top:6px;
+  border:1px solid #cfd8dc; border-radius:10px;
 }
-
 button {
-    width:100%;
-    padding:14px;
-    background:#1565c0;
-    color:white;
-    border:none;
-    border-radius:10px;
-    font-size:1.1rem;
-    margin-top:25px;
-    cursor:pointer;
+  width:100%; padding:14px; background:#1565c0;
+  color:white; border:none; border-radius:10px;
+  font-size:1.1rem; margin-top:25px; cursor:pointer;
 }
 button:hover { background:#1e88e5; }
+
+/* ENCARD BAS DROITE */
+.local-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1565c0;
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    font-size: 0.9rem;
+    max-width: 250px;
+}
 </style>
 </head>
 
 <body>
 
 <nav class="navbar">
-    <div class="nav-container">
-        <a href="index.html" class="logo-nav">MARTELINFO</a>
-        <div class="nav-links">
-            <a href="index.html">Accueil</a>
-            <a href="contact.html">Contact</a>
-        </div>
+  <div class="nav-container">
+    <a href="index.html" class="logo-nav">MARTELINFO</a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="contact.html">Contact</a>
     </div>
+  </div>
 </nav>
 
 <div class="form-container">
-    <img src="LOGO.png" class="logo">
-    <h2>Demande d'assistance</h2>
+  <img src="logo.png" class="logo">
+  <h2>Demande d'assistance</h2>
 
-    <form action="https://formspree.io/f/mreldkor" method="POST">
-        <input type="hidden" name="_redirect" value="https://MARTELINFO.github.io/martelinfo-site/merci.html">
+  <form action="https://formspree.io/f/TONCODE" method="POST">
+    <input type="hidden" name="_redirect" value="merci.html">
 
-        <label>Nom</label>
-        <input type="text" name="nom" required>
+    <label>Nom</label>
+    <input type="text" name="nom" required>
 
-        <label>Prénom</label>
-        <input type="text" name="prenom" required>
+    <label>Prénom</label>
+    <input type="text" name="prenom" required>
 
-        <label>Adresse mail</label>
-        <input type="email" name="email" required>
+    <label>Adresse mail</label>
+    <input type="email" name="email" required>
 
-        <label>Ville</label>
-        <input type="text" name="ville" required>
+    <label>Téléphone</label>
+    <input type="tel" name="telephone">
 
-        <label>Décrivez votre problème</label>
-        <textarea name="message" rows="5" required></textarea>
+    <label>Ville</label>
+    <input type="text" name="ville" required>
 
-        <button type="submit">Envoyer la demande</button>
-    </form>
+    <label>Votre demande</label>
+    <textarea name="message" rows="5" required></textarea>
+
+    <button type="submit">Envoyer la demande</button>
+  </form>
+</div>
+
+<div class="local-box">
+  <strong>Entreprise locale</strong><br>
+  Cher & Nièvre<br>
+  Mail : martelinf@outlook.fr<br>
+  Téléphone : 07.44.98.17.66
 </div>
 
 </body>
 </html>
-
