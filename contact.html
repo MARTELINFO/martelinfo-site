@@ -166,29 +166,36 @@ button:hover { background: #003f80; }
     <div class="availability-badge">Disponible 7j/7</div>
     <strong>Entreprise locale – Cher & Nièvre</strong><br>
     18140<br>
+    Mail : martelinf@outlook.fr
     07.44.98.17.66
     <br><br>
     <a href="tel:0744981766" class="call-btn">📞 Appeler maintenant</a>
 </div>
 
-<!-- ===== SCRIPT POUR ENVOI + REDIRECTION ===== -->
 <script>
 document.getElementById("contactForm").addEventListener("submit", function(e){
-    e.preventDefault(); // empêche l'envoi classique
+    e.preventDefault();
 
     const formData = new FormData(this);
 
     fetch("https://formspree.io/f/mreldkor", {
         method: "POST",
         body: formData,
-        headers: { 'Accept': 'application/json' }
+        headers: {
+            'Accept': 'application/json'
+        }
     })
     .then(response => {
         if (response.ok) {
-            // Redirection directe vers merci.html
             window.location.href = "merci.html";
         } else {
-            alert("Erreur lors de l'envoi, réessayez plus tard.");
+            response.json().then(data => {
+                if (data.errors) {
+                    alert(data.errors.map(e => e.message).join(", "));
+                } else {
+                    alert("Erreur lors de l'envoi, réessayez plus tard.");
+                }
+            })
         }
     })
     .catch(() => alert("Erreur réseau, réessayez plus tard."));
@@ -198,3 +205,4 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
 </body>
 
 </html>
+
