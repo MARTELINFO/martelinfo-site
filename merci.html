@@ -4,50 +4,188 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Merci - MARTELINFO</title>
-
 <style>
 body {
-    font-family: Arial;
-    background: #eef4fb;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f8ff;
+    color: #222;
 }
 
-.box {
+header {
+    background: #005bbb;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header img {
+    max-width: 180px;
+    margin-bottom: 10px;
+}
+
+nav {
+    background: #003f80;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 600px;
+    margin: 60px auto;
     background: white;
-    padding: 40px;
-    border-radius: 15px;
+    padding: 30px;
+    border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     text-align: center;
-    max-width: 500px;
 }
 
-h1 { color: #1565c0; }
+.container h1 {
+    color: #005bbb;
+    margin-bottom: 20px;
+}
 
-a {
+.container p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.button-home {
     display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    background: #1565c0;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: #005bbb;
     color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
-a:hover { background:#1e88e5; }
+
+.button-home:hover {
+    background: #1e88e5;
+    transform: scale(1.05);
+}
+
+/* ENCADRÉ BAS DROITE */
+.local-box {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #005bbb, #007bff);
+    color: white;
+    padding: 20px 22px;
+    border-radius: 16px;
+    font-size: 14px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    z-index: 1000;
+    animation: floatBox 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    width: 250px;
+}
+
+.local-box:hover {
+    transform: translateY(-6px);
+}
+
+.availability-badge {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #00c853;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    animation: pulse 2s infinite;
+}
+
+.call-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 9px 16px;
+    background: white;
+    color: #005bbb;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.call-btn:hover {
+    background: #e6f0ff;
+    transform: scale(1.07);
+}
+
+@keyframes floatBox {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.6); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 200, 83, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+}
+
+@media (max-width: 768px) {
+    .local-box {
+        position: static;
+        margin: 30px auto;
+        width: 90%;
+        text-align: center;
+        animation: none;
+    }
+
+    .availability-badge {
+        position: static;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<div class="box">
-    <h1>Merci pour votre message !</h1>
-    <p>Votre demande a bien été envoyée.<br>Je vous répondrai rapidement.</p>
-    <a href="index.html">Retour à l'accueil</a>
+<header>
+    <img src="logo.png" alt="Logo MARTELINFO">
+    <h2>MARTELINFO</h2>
+</header>
+
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+    <h1>Merci pour votre demande !</h1>
+    <p>Votre message a bien été envoyé. Je vous répondrai dans les plus brefs délais.</p>
+    <a href="index.html" class="button-home">Retour à l'accueil</a>
+</div>
+
+<div class="local-box">
+    <div class="availability-badge">Disponible 7j/7</div>
+    <strong>Entreprise locale – Cher & Nièvre</strong><br>
+    18140<br>
+    Mail : martelinf@outloo.fr
+    07.44.98.17.66
+    <br><br>
+    <a href="tel:0744981766" class="call-btn">📞 Appeler maintenant</a>
 </div>
 
 </body>
 </html>
-
