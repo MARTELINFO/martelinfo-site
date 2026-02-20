@@ -4,94 +4,193 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MARTELINFO - Assistance Informatique</title>
-<meta name="description" content="MARTELINFO : dépannage et assistance informatique à domicile.">
 
 <style>
-body { margin:0; font-family:Arial; background:#eef4fb; color:#0d47a1; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f8ff;
+    color: #222;
+}
 
-/* NAVIGATION */
-.navbar { background:#1565c0; padding:12px 0; box-shadow:0 4px 10px rgba(0,0,0,0.15); }
-.nav-container { max-width:1100px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:0 20px; }
-.logo-nav { color:white; font-weight:bold; font-size:1.2rem; text-decoration:none; }
-.nav-links a { color:white; text-decoration:none; margin-left:20px; }
-.nav-links a:hover { color:#bbdefb; }
+header {
+    background: #005bbb;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
 
-/* CONTENU */
-header { text-align:center; padding:40px 15px 10px 15px; }
-header img { max-width:160px; margin-bottom:15px; }
-section { max-width:900px; margin:30px auto 60px auto; background:white; padding:30px; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.1); }
-h1, h2 { text-align:center; }
-ul { line-height:1.8; }
-.cta { text-align:center; margin-top:30px; }
-.cta a { display:inline-block; background:#1565c0; color:white; padding:14px 25px; border-radius:10px; text-decoration:none; }
-.cta a:hover { background:#1e88e5; }
+nav {
+    background: #003f80;
+    padding: 10px;
+    text-align: center;
+}
 
-/* ENCARD BAS DROITE */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+h1 {
+    color: #005bbb;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* ===== ENCARD LOCAL ===== */
+
 .local-box {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #1565c0;
+    background: linear-gradient(135deg, #005bbb, #007bff);
     color: white;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    font-size: 0.9rem;
-    max-width: 250px;
+    padding: 20px 22px;
+    border-radius: 16px;
+    font-size: 14px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    z-index: 1000;
+    animation: floatBox 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    width: 250px;
+}
+
+.local-box:hover {
+    transform: translateY(-6px);
+}
+
+.availability-badge {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #00c853;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    animation: pulse 2s infinite;
+}
+
+.call-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 9px 16px;
+    background: white;
+    color: #005bbb;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.call-btn:hover {
+    background: #e6f0ff;
+    transform: scale(1.07);
+}
+
+@keyframes floatBox {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.6); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 200, 83, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+}
+
+@media (max-width: 768px) {
+    .local-box {
+        position: static;
+        margin: 30px auto;
+        width: 90%;
+        text-align: center;
+        animation: none;
+    }
+
+    .availability-badge {
+        position: static;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<nav class="navbar">
-  <div class="nav-container">
-    <a href="index.html" class="logo-nav">MARTELINFO</a>
-    <div class="nav-links">
-      <a href="index.html">Accueil</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-</nav>
-
 <header>
-  <img src="logo.png" alt="Logo MARTELINFO">
-  <h1>MARTELINFO</h1>
-  <p>Assistance & Dépannage Informatique à domicile</p>
+    <img src="logo.png" alt="Logo MARTELINFO" style="max-width:180px;"><br>
+    <h2>MARTELINFO</h2>
 </header>
 
-<section>
-  <h2>Bonjour, voici les services que je propose</h2>
+<nav>
+    <a href="index.html">Accueil</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-  <ul>
-    <li>Réparation</li>
-    <li>Maintenance</li>
-    <li>Remplacement de pièces</li>
-    <li>Diagnostics de pannes</li>
-    <li>Optimisation</li>
-    <li>Montage PC complet</li>
-    <li>Transformation PC de bureau en PC gaming</li>
-    <li>Installation de logiciels</li>
-    <li>Passage à Windows 11</li>
-    <li>Déblocage d'iPhone</li>
-    <li>Traitement image IA</li>
-    <li>Cours débutants</li>
-    <li>Passage à Linux pour prolonger la durée de vie du matériel sous W10</li>
-  </ul>
+<div class="container">
+<h1>Services à domicile :</h1>
 
-  <p><strong>⚠ Ne faites pas installer Windows 11 sur des appareils non compatibles.</strong>
-  Préférez un changement de système plus sécurisé et durable.</p>
+<ul>
+<li>Réparation PC toutes marques</li>
+<li>Maintenance</li>
+<li>Remplacement de pièces</li>
+<li>Diagnostics de pannes</li>
+<li>Optimisation</li>
+<li>Montage PC complet</li>
+<li>Transformation PC bureau en PC gaming</li>
+<li>Installation de logiciels</li>
+<li>Passage à Windows 11 ou autre</li>
+<li>Déblocage d'IPhone</li>
+<li>Traitement image IA</li>
+<li>Cours débutants</li>
+<li>Passage à Linux pour contrer l'obsolescence Windows 10</li>
+<li>Autres services liés aux téléphones, tablettes etc...
+</ul>
 
-  <div class="cta">
-    <a href="contact.html">Me contacter</a>
-  </div>
-</section>
+<p><strong>Ne faites pas installer Windows 11 sur des appareils non compatibles.</strong><br>
+Préférez le changement de système, plus sécurisé et pérenne.</p>
+
+<p>Déplacement à domicile possible.<br>
+Contactez-moi par le formulaire ou par SMS.</p>
+
+<p><strong>Devis gratuits.</strong></p>
+</div>
+
+<footer>
+© 2026 MARTELINFO
+</footer>
 
 <div class="local-box">
-  <strong>Entreprise locale</strong><br>
-  Cher & Nièvre<br>
-  Mail : martelinf@outlook.fr<br>
-  Téléphone : 07.44.98.17.66
+<div class="availability-badge">Disponible 7j/7</div>
+<strong>Entreprise locale – Cher & Nièvre</strong><br>
+18140<br>
+Mail : martelinf@outlook.fr
+07.44.98.17.66
+<br><br>
+<a href="tel:0744981766" class="call-btn">📞 Appeler maintenant</a>
 </div>
 
 </body>

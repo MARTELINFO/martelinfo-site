@@ -4,101 +4,165 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact - MARTELINFO</title>
-
 <style>
-body { margin:0; font-family:Arial; background:#eef4fb; }
+body { font-family: Arial; background:#f4f8ff; margin:0; }
+header { background:#005bbb; color:white; padding:20px; text-align:center; }
+nav { background:#003f80; padding:10px; text-align:center; }
+nav a { color:white; margin:0 15px; text-decoration:none; font-weight:bold; }
 
-/* NAV */
-.navbar { background:#1565c0; padding:12px 0; box-shadow:0 4px 10px rgba(0,0,0,0.15); }
-.nav-container { max-width:1100px; margin:auto; display:flex; justify-content:space-between; align-items:center; padding:0 20px; }
-.logo-nav { color:white; font-weight:bold; text-decoration:none; }
-.nav-links a { color:white; text-decoration:none; margin-left:20px; }
-.nav-links a:hover { color:#bbdefb; }
-
-/* FORM */
-.form-container {
-  max-width:600px; margin:60px auto; background:white; padding:35px;
-  border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.12);
+.container {
+max-width:600px;
+margin:40px auto;
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 8px 25px rgba(0,0,0,0.1);
 }
-.logo { display:block; margin:0 auto 20px auto; max-width:200px; }
-h2 { text-align:center; color:#1565c0; }
 
-label { font-weight:bold; display:block; margin-top:15px; color:#0d47a1; }
 input, textarea {
-  width:100%; padding:12px; margin-top:6px;
-  border:1px solid #cfd8dc; border-radius:10px;
+width:100%;
+padding:10px;
+margin-bottom:15px;
+border-radius:5px;
+border:1px solid #ccc;
 }
-button {
-  width:100%; padding:14px; background:#1565c0;
-  color:white; border:none; border-radius:10px;
-  font-size:1.1rem; margin-top:25px; cursor:pointer;
-}
-button:hover { background:#1e88e5; }
 
-/* ENCARD BAS DROITE */
+button {
+background:#005bbb;
+color:white;
+padding:12px;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover { background:#003f80; }
+
 .local-box {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #1565c0;
+    background: linear-gradient(135deg, #005bbb, #007bff);
     color: white;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    font-size: 0.9rem;
-    max-width: 250px;
+    padding: 20px 22px;
+    border-radius: 16px;
+    font-size: 14px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    z-index: 1000;
+    animation: floatBox 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    width: 250px;
+}
+
+.local-box:hover {
+    transform: translateY(-6px);
+}
+
+.availability-badge {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #00c853;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    animation: pulse 2s infinite;
+}
+
+.call-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 9px 16px;
+    background: white;
+    color: #005bbb;
+    font-weight: bold;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.call-btn:hover {
+    background: #e6f0ff;
+    transform: scale(1.07);
+}
+
+/* Animation flottante */
+@keyframes floatBox {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Animation badge */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.6); }
+    70% { box-shadow: 0 0 0 10px rgba(0, 200, 83, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .local-box {
+        position: static;
+        margin: 30px auto;
+        width: 90%;
+        text-align: center;
+        animation: none;
+    }
+
+    .availability-badge {
+        position: static;
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+}
+@media(max-width:768px){
+.local-box{ position:static; margin:30px auto; width:90%; text-align:center; }
+.availability-badge{ position:static; display:inline-block; margin-bottom:10px;}
 }
 </style>
 </head>
 
 <body>
 
-<nav class="navbar">
-  <div class="nav-container">
-    <a href="index.html" class="logo-nav">MARTELINFO</a>
-    <div class="nav-links">
-      <a href="index.html">Accueil</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
+<header>
+<img src="logo.png" alt="Logo MARTELINFO" style="max-width:180px;">
+<h2>Contact - MARTELINFO</h2>
+</header>
+
+<nav>
+<a href="index.html">Accueil</a>
+<a href="contact.html">Contact</a>
 </nav>
 
-<div class="form-container">
-  <img src="logo.png" class="logo">
-  <h2>Demande d'assistance</h2>
+<div class="container">
 
-  <form action="https://formspree.io/f/mreldkor" method="POST">
-    <input type="hidden" name="_redirect" value="merci.html">
+<form action="https://formspree.io/f/mreldkor" method="POST">
 
-    <label>Nom</label>
-    <input type="text" name="nom" required>
+<input type="text" name="nom" placeholder="Nom" required>
+<input type="text" name="prenom" placeholder="Prénom" required>
+<input type="email" name="email" placeholder="Adresse mail" required>
+<input type="text" name="telephone" placeholder="Téléphone">
+<input type="text" name="ville" placeholder="Ville">
+<textarea name="message" rows="5" placeholder="Votre demande..." required></textarea>
 
-    <label>Prénom</label>
-    <input type="text" name="prenom" required>
+<button type="submit">Envoyer la demande</button>
 
-    <label>Adresse mail</label>
-    <input type="email" name="email" required>
+</form>
 
-    <label>Téléphone</label>
-    <input type="tel" name="telephone">
-
-    <label>Ville</label>
-    <input type="text" name="ville" required>
-
-    <label>Votre demande</label>
-    <textarea name="message" rows="5" required></textarea>
-
-    <button type="submit">Envoyer la demande</button>
-  </form>
 </div>
 
 <div class="local-box">
-  <strong>Entreprise locale</strong><br>
-  Cher & Nièvre<br>
-  Mail : martelinf@outlook.fr<br>
-  Téléphone : 07.44.98.17.66
+<div class="availability-badge">Disponible 7j/7</div>
+<strong>Entreprise locale – Cher & Nièvre</strong><br>
+18140<br>
+Mail : martelinf@outlook.fr
+07.44.98.17.66
+<br><br>
+<a href="tel:0744981766" class="call-btn">📞 Appeler maintenant</a>
 </div>
 
 </body>
 </html>
-
