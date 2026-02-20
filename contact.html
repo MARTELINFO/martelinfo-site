@@ -166,35 +166,30 @@ Mail : martelinf@outlook.fr
 </div>
 
 <script>
-document.querySelector("form").addEventListener("submit", function() {
-    setTimeout(function(){
-        window.location.href = "merci.html";
-    }, 1200);
-});
-</script>
-<script>
-document.querySelector("form").addEventListener("submit", function(e){
-    e.preventDefault(); // empêche le comportement normal
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault(); // empêche l'envoi normal
     const form = this;
 
     fetch(form.action, {
         method: form.method,
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
-    }).then(response => {
+    })
+    .then(response => {
         if (response.ok) {
-            window.location.href = "merci.html"; // redirection directe
+            window.location.href = "merci.html"; // redirection immédiate
         } else {
             alert("Erreur lors de l'envoi, réessayez plus tard.");
         }
-    }).catch(error => {
-        alert("Erreur réseau, réessayez plus tard.");
-    });
+    })
+    .catch(() => alert("Erreur réseau, réessayez plus tard."));
 });
 </script>
+
 </body>
 
 </html>
+
 
 
 
